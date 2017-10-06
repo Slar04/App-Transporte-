@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <string>
+#include <iostream>
+using namespace std;
+#define Size 20
+
+class Polindromo {
+	char Palabra[Size], Pol[Size] = {'\0'};
+public:
+	int i, j, ToF, Tamaño;
+
+	friend int Polin(Polindromo &obj);
+	void Imp(int);
+	Polindromo::Polindromo();
+	Polindromo::~Polindromo();
+};
+
+Polindromo::Polindromo() {
+	cin.getline(Palabra,20);
+	Tamaño = strlen(Palabra);
+	j = 0;
+
+	for (i = (Tamaño-1); i>=0; i--) { //Se le resta uno al tamaño porque al final de el string palabra hay un caracter vacio
+		Pol[j] = Palabra[i];
+		j++;
+	}
+}
+
+int Polin(Polindromo &A) {
+	int ToF;
+	A.j = 0;
+	
+	ToF = strcmp(A.Palabra, A.Pol);
+
+	return ToF;
+}
+
+void Polindromo::Imp(int ToF){
+
+	cout << "\nTu palabra"<< (this->ToF==0?"":" no") << " es polindromo. Las palabras son:" << endl;
+	cout << this->Palabra << " y " << Pol << endl;
+	
+}
+
+Polindromo::~Polindromo() { cout << "\nBye"; getch(); }
+
+int main (){
+	int resp = 0;
+	do {
+		system("cls");
+		getchar();
+		cout << "********************************" << endl
+			<< "Polindromos" << endl << "********************************" << endl
+			<< "\tIngresa la palabra:";
+
+		Polindromo P1;
+		P1.ToF = Polin(P1);
+		P1.Imp(P1.ToF);
+
+		cout << "Desea reinicia el programa? Si=1, No=0\nResp:";
+		cin >> resp;
+	} while (resp != 0);
+	return 0;
+}

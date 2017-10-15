@@ -8,7 +8,7 @@ de base, que de solo 8 oportunidades de "Error" antes
 de ahorcado.
 */
 
-
+/*No mames puto*/
 #include <cstring>
 #include <stdlib.h>
 #include <stdio.h>
